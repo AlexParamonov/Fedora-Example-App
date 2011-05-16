@@ -1,0 +1,16 @@
+development:
+  fedora:
+    url: http://fedoraAdmin:secret@localhost:8080/fedora
+  solr:
+    url: http://localhost:8080/solr/
+test:
+  fedora:
+    url: http://fedoraAdmin:secret@localhost:8080/fedora
+  solr:
+    url: http://localhost:8080/solr/
+production:
+  fedora:
+    url: http://fedoraAdmin:secret@localhost:8080/fedora
+  solr:
+    url: http://localhost:8080/solr/
+    
