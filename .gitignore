@@ -1,0 +1,7 @@
+.bundle
+.idea/
+doc/
+/tmp/
+tmp/
+log/
+db/*.sqlite3

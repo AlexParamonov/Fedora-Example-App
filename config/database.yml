@@ -1,0 +1,27 @@
+# MySQL.  Versions 4.1 and 5.0 are recommended.
+#
+# Install the MySQL driver:
+#   gem install mysql2
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+defaults: &defaults
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  username: root
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  database: fedora-18_development
+  <<: *defaults
+
+test:
+  database: fedora-18_test
+  <<: *defaults
+
+production:
+  database: fedora-18_production
+  <<: *defaults
