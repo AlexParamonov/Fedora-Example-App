@@ -5,7 +5,8 @@
 Requirements:
 git
 ruby 1.8.7
-
+java
+mysql server
 
 1. Clone and run Hydra-Jetty
 git clone git://github.com/projecthydra/hydra-jetty.git
@@ -16,7 +17,6 @@ java -jar start.jar
 git clone git://github.com/AlexParamonov/Fedora-Example-App.git
 
 3. Setup username and password for mysql db and then run
-
 cd Fedora-Example-App
 bundle install
 rake db:create
@@ -25,5 +25,37 @@ rake db:create
 rails c
 oh = OralHistory.new
 oh.save
-
 https://github.com/mediashelf/active_fedora/blob/master/CONSOLE_GETTING_STARTED.textile
+
+
+=== How to install Fedora and Solr for use with ActiveFedora ===
+
+Follow this guide http://projects.mediashelf.us/projects/active-fedora/wiki/Setting_up_Fedora_and_Solr_for_use_with_ActiveFedora. Dont forget to use latest versions of Fedora and Solr
+
+Most links in that guide are broken, so
+Fedora commons (http://downloads.sourceforge.net/fedora-commons/)
+Solr (http://www.apache.org/dyn/closer.cgi/lucene/solr/)
+
+While installing Fedora, you may also check this article http://asingh.com.np/blog/fedora-commons-installation-and-configuration-guide/ (install fedora commons chapter)
+
+At the last step, where you need to copy
+cp [PATH TO ACTIVE FEDORA CODE]/solr/config/schema.xml $FEDORA_HOME/solr/conf/
+
+do not use that scheme.
+use attached one. I got it from jetty server - schema.xml
+
+Do not forget to setup env vars.
+In Linux you may add them to your .bashrc file
+
+# ActiveFedora
+export FEDORA_HOME=/home/ap/.fedora
+export CATALINA_HOME=$FEDORA_HOME/tomcat
+
+To run server
+
+$FEDORA_HOME/tomcat/bin/startup.sh
+To stop
+
+$FEDORA_HOME/tomcat/bin/shutdown.sh
+
+In Example App from "How to install and run ActiveFedora as soon as possible." to use this configuration, rename fedora_custom.xml to fedora.xml (and double check all configurations in that file)
